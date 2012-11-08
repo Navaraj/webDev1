@@ -1,0 +1,46 @@
+body{
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:13px;
+	background-color:#BFBFBF;
+	margin:1px;
+	padding:0px;
+}
+.container{
+	float:left;
+	margin:12px;
+	width:960px;
+	background-color:#FFF;
+}
+#page
+{
+	padding:12px;
+	width:980px;
+	float:left;
+	background-color:#FFF;
+}
+#header{
+	font-size:24px;
+	font-weight:400;
+	text-align:center;
+	background-color:#BFBFBF;
+}
+#footer{
+	font-size:12px;
+	font-weight:400;
+	text-align:center;
+	margin-top:400px;
+	
+	}
+.topmenu li{
+	list-style-type: none;
+	float:left;
+	padding:0px 10px;
+	vertical-align:center;
+	}
+	.topmenu{
+	float:left;
+	width:960px;
+	padding:0px;
+	margin:0px;
+	background-color:#ADD8E6;
+}

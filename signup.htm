@@ -4,24 +4,81 @@
 		<title></title>
 		<script type="text/javascript">
 		function valid(){
+			if(validEmail()&& validUserName() && validPassword() && confirmPassword())
+			{
+			alert('Success!!')	
+			return true;	
+			}
+			else
+			{
+			return false;	
+			}
+					
+		}
+		function validEmail(){
+			var pattern_email=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}$/;
 			var emailVal = document.getElementById('email').value;
-			var usernameVal = document.getElementById('username').value;
-			var passwordVal = document.getElementById('password').value;
-			var c_passwordVal = document.getElementById('c_password').value;
-			if(emailVal === '' || usernameVal === '' || passwordVal === '' || c_passwordVal === ''){
-				alert('empty fields can not be submitted');
+			if(pattern_email.test(emailVal))
+				{
+					document.getElementById('emailError').innerHTML="";
+				return true;
+				}				
+			else{
+				document.getElementById('emailError').innerHTML="Invalid Email";
 				return false;
 			}
 		}
+		
+		function validUserName(){
+			var pattern_uname = /^[A-Za-z][A-Za-z0-9]{5,}$/;
+			var userNameVal = document.getElementById('username').value;
+			if(pattern_uname.test(userNameVal))
+				{
+					document.getElementById('userError').innerHTML="";
+					return true;
+				}				
+			else{
+				document.getElementById('userError').innerHTML="Username should not start with digit and should be at least 6 character";
+				return false;
+			}
+		}
+		
+		function validPassword(){
+			var pattern_pass = /^[0-9a-zA-Z]{5,}$/;
+			var passwordVal = document.getElementById('password').value;
+			if(pattern_pass.test(passwordVal))
+				{
+					document.getElementById('passwordError').innerHTML="";
+					return true;
+				}				
+			else{
+				document.getElementById('passwordError').innerHTML="Password should be alphanumeric and at least 6 character";
+				return false;
+			}
+		}
+		function confirmPassword(){
+			var passwordVal = document.getElementById('password').value;
+			var c_passwordVal = document.getElementById('c_password').value;
+			if(c_passwordVal.match(passwordVal))
+			{
+				document.getElementById('c_passwordError').innerHTML="";	
+				return true;		
+				}				
+			else{
+				document.getElementById('c_passwordError').innerHTML="Password doesn't match";
+				return false;
+			}
+			}
 		</script>
 	</head>
 	<body>
 		<a href="home.htm">Home</a><br/><a href="login.htm">Login</a><br/><a href="signup.htm">Signup</a>
+		<br><a href="profile.htm">Profile</a></br>
 		<form method="post" action="" onSubmit = "return valid()">
-			<label>Email</label><input type="text" id="email" /><br/>
-			<label>Username</label><input type="text" id="username" /><br/>
-			<label>Password</label><input type="password" id="password" /><br/>
-			<label>Confirm Password</label><input type="password" id="c_password" /><br/>
+			<label>Email</label><input type="text" id="email" onblur="validEmail()"/><div id='emailError'></div><br/>
+			<label>Username</label><input type="text" id="username" onblur="validUserName()"/><div id='userError'></div><br/>
+			<label>Password</label><input type="password" id="password" onblur="validPassword()"/><div id='passwordError'></div><br/>
+			<label>Confirm Password</label><input type="password" id="c_password" onblur="confirmPassword()"/><div id='c_passwordError'></div></div></div><br/>
 			<input type="submit" value="Signup Now" />
 		</form>
 	</body>

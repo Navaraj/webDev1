@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile Page</title>
+<script type="text/javascript">
+	function valid(){
+			
+			if(F_NameCheck() && L_NameCheck() && addressCheck() && mobileCheck() && emailCheck())
+			{
+			alert('Success!!')	
+			return true;	
+			}
+			else
+			{
+			return false;	
+			}			
+		}
+		
+		function F_NameCheck(){
+			var f_NameVal=document.getElementById('f_name').value;
+			if(f_NameVal!="")
+				{
+				document.getElementById('f_NameError').innerHTML="";
+				return true;
+				}				
+			else{
+				document.getElementById('f_NameError').innerHTML="Give your first name";
+				return false;
+			}
+		}
+		function L_NameCheck(){
+			var l_NameVal=document.getElementById('l_name').value;
+			if(l_NameVal!="")
+				{
+				document.getElementById('l_NameError').innerHTML="";
+				return true;
+				}				
+			else{
+				document.getElementById('l_NameError').innerHTML="Give your last name";
+				return false;
+			}
+		}
+		
+		function addressCheck(){
+			var addressVal=document.getElementById('address').value;
+			if(addressVal!="")
+				{
+				document.getElementById('addressError').innerHTML="";
+				return true;
+				}				
+			else{
+				document.getElementById('addressError').innerHTML="Give your Address";
+				return false;
+			}
+		}
+		
+		function mobileCheck(){
+			var mobileVal=document.getElementById('mobile_num').value;
+			if(mobileVal!="")
+				{
+				document.getElementById('mobileError').innerHTML="";
+				return true;
+				}				
+			else{
+				document.getElementById('mobileError').innerHTML="Give your mobile number";
+				return false;
+			}
+		}
+		
+		function emailCheck(){
+			var emailVal=document.getElementById('email').value;
+			if(emailVal!="")
+				{
+				document.getElementById('emailError').innerHTML="";
+				return true;
+				}				
+			else{
+				document.getElementById('emailError').innerHTML="Give your email address";
+				return false;
+			}
+		}
+		
+</script>
+</head>
+<body>
+	<a href="home.htm">Home</a><br/><a href="login.htm">Login</a><br/><a href="signup.htm">Signup</a>
+		<br><a href="profile.htm">Profile</a></br>
+		<form method="post" action="" onSubmit = "return valid()">
+			<label>First Name:</label><input type="text" id="f_name" onblur="F_NameCheck()"/><div id='f_NameError'></div><br/>
+			<label>Last Name:</label><input type="text" id="l_name" onblur="L_NameCheck()"/><div id='l_NameError'></div><br/>
+			<label>Address:</label><input type="text" id="address" onblur="addressCheck()"/><div id='addressError'></div><br/>
+			<label>Gender:</label><input type="radio" name="gender" value="male" />Male
+			<input type="radio" name="gender" value="female" />Female<br/>
+			<label>Country:</label>
+			<select name="country">
+			<option selected>Nepal</option>
+			<option>China</option>
+			<option>India</option>
+			<option>Canada</option>
+			<option>Taiwan</option>
+			<option>USA</option>
+			</select><br/>
+			<label>Marital Status:</label>
+			<input type="checkbox" name="m_status" value="married">Married
+			<input type="checkbox" name="m_status" value="single">Single<br/>
+			<label>Mobile:</label><input type="text" id="mobile_num" onblur="mobileCheck()"/><div id='mobileError'></div><br/>
+			<label>Email:</label><input type="text" id="email" onblur="emailCheck()"/><div id='emailError'></div><br/>
+			<input type="submit" value="Submit" />
+		</form>
+</body>
+</html>
